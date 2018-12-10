@@ -1,0 +1,110 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion build_versions.compileSdkVersion
+    defaultConfig {
+        applicationId "com.master.app"
+        minSdkVersion build_versions.minSdkVersion
+        targetSdkVersion build_versions.targetSdkVersion
+        versionCode modular.versionCode
+        versionName modular.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "versionCode" // flavor dimension 它的维度就是该版本号，统一维度
+
+    }
+
+    signingConfigs {
+        debug {
+            keyAlias 'debugkey'
+            keyPassword 'debug12345'
+            storeFile file('E:/LamorProject/MasterDemo/keystores/key_debug.jks')
+            storePassword 'debug12345'
+        }
+        release {
+            keyAlias 'releasekey'
+            keyPassword 'release12345'
+            storeFile file('E:/LamorProject/MasterDemo/keystores/key_release.jks')
+            storePassword 'release12345'
+        }
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField("boolean", "LOG_ON", "true")
+            zipAlignEnabled false                            //Zipalign优化
+            shrinkResources false                            // 移除无用的resource文件
+            signingConfig signingConfigs.debug               //使用debug证书签名
+        }
+
+        release {
+            buildConfigField("boolean", "LOG_ON", "false")
+
+            minifyEnabled true                               //开启混淆
+            zipAlignEnabled true                             //开启Zipalign优化
+            shrinkResources true                             //移除无用的resource文件，此项只有在开启混淆时才生效
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        applicationVariants.all { variant ->
+            variant.outputs.all { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                    def fileName = "app-${variant.buildType.name}-${defaultConfig.versionName}-${releaseTime()}-${variant.productFlavors[0].name}.apk"
+                    outputFileName = fileName
+                }
+            }
+        }
+
+    }
+
+    productFlavors {
+
+        major {
+            // 修改包名
+            applicationId = "com.master.app"
+            // AndroidManifest 中占位符 用于区分渠道
+            manifestPlaceholders = [CHANNEL_VALUE: "main"]
+        }
+
+//        xiaomi {
+//            applicationId = "com.master.app.xiaomi"
+//            manifestPlaceholders = [CHANNEL_VALUE: "xiaomi"]
+//        }
+//
+//        wandoujia {
+//            applicationId = "com.master.app.wandoujia"
+//            manifestPlaceholders = [CHANNEL_VALUE: "wandoujia"]
+//        }
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    //
+    implementation 'com.squareup.okhttp3:okhttp:3.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    //
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    //
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+}
+
+def releaseTime() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd-HH_mm')
+    return formattedDate
+}

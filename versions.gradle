@@ -1,0 +1,15 @@
+ext.deps = [:]
+def build_versions = [:]
+build_versions.compileSdkVersion = 28
+build_versions.minSdkVersion = 15
+build_versions.targetSdkVersion = 28
+ext.build_versions = build_versions
+
+def modular = [:]
+modular.versionCode = formatVersionCode()
+modular.versionName = "1.0"
+ext.modular = modular
+
+private static def formatVersionCode() {
+    return Integer.parseInt(new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC")))
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/btn_cmaera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="照相机" />
+
+
+    <Button
+        android:id="@+id/btn_storage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="读写SD卡" />
+
+    <Button
+        android:id="@+id/btn_interface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="post网络请求" />
+
+    <Button
+        android:id="@+id/btn_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传图片(1张)" />
+
+    <Button
+        android:id="@+id/btn_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传图片(多张)" />
+
+</LinearLayout>
