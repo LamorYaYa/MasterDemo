@@ -1,6 +1,5 @@
 ## 自定义Dialog的创建
-
-ICustomDialog iCustomDialog = new ICustomDialog.Builder(this)
+    ICustomDialog iCustomDialog = new ICustomDialog.Builder(this)
                 // 设置布局
                 .setLayoutResId(R.layout.test_dialog_layout)
                 // 点击空白是否消失
@@ -25,9 +24,8 @@ ICustomDialog iCustomDialog = new ICustomDialog.Builder(this)
         iCustomDialog.show();
 
 ## 默认Dialog创建
-
-new IDefaultDialog(this).builder()
-                .setGravity(Gravity.CENTER)
+    new IDefaultDialog(this).builder()
+               .setGravity(Gravity.CENTER)
                 .setCancelable(false)
                 .setCanceledOnTouchOutside(false)
                 .setTitle("29 Nov.")
@@ -52,23 +50,18 @@ new IDefaultDialog(this).builder()
     @POST("gginterface/api/sendVerifySMS.html")
     Observable<Beans> sendCode(@FieldMap() Map<String, String> params);
 
+    Map<String, String> mHashMap = new HashMap<>();
+    mHashMap.put("","");
+    mHashMap.put("","");
 
-
-Map<String, String> mHashMap = new HashMap<>();
-        mHashMap.put("","");
-        mHashMap.put("","");
-
-        IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode(mHashMap), new IHttpManager.IResponseListener<Beans>() {
-            @Override
-            public void onSuccess(Beans data) {
-
-            }
-
-            @Override
-            public void onFail(Throwable e) {
-
-            }
-        });
+    IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode(mHashMap), new IHttpManager.IResponseListener<Beans>() {
+        @Override
+        public void onSuccess(Beans data) {
+        }
+        @Override
+        public void onFail(Throwable e) {
+        }
+    });
 
 ## 网络请求,统一格式 返回
 
