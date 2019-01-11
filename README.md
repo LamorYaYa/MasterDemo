@@ -1,4 +1,5 @@
 ## 自定义Dialog的创建
+
 ICustomDialog iCustomDialog = new ICustomDialog.Builder(this)
                 // 设置布局
                 .setLayoutResId(R.layout.test_dialog_layout)
@@ -24,6 +25,7 @@ ICustomDialog iCustomDialog = new ICustomDialog.Builder(this)
         iCustomDialog.show();
 
 ## 默认Dialog创建
+
 new IDefaultDialog(this).builder()
                 .setGravity(Gravity.CENTER)
                 .setCancelable(false)
