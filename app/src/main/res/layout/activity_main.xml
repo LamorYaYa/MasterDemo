@@ -42,6 +42,7 @@
 
 
     <com.master.app.view.ICustomButton
+        android:id="@+id/add_fragment_button"
         android:layout_width="match_parent"
         android:layout_height="34dp"
         android:layout_marginLeft="16dp"
@@ -50,8 +51,6 @@
         android:text="哈哈哈"
         app:backColor="#234234"
         app:backColorPress="#b1dec9"
-        app:backGroundImage="@mipmap/ic_launcher"
-        app:backGroundImagePress="@mipmap/ic_launcher_round"
         app:isDrawable="false"
         app:radius="8"
         app:textColor="#000000"

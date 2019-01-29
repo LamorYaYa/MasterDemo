@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 
 import com.master.app.R;
@@ -31,7 +30,6 @@ public class ICustomButton extends Button {
     private boolean isDrawable; // 是否是设置图片背景
 
     private GradientDrawable gradientDrawable;
-    private boolean isCost = true;
 
     public ICustomButton(Context context) {
         this(context, null);
@@ -148,15 +146,9 @@ public class ICustomButton extends Button {
             }
         }
 
-        return isCost;
+        return false;
     }
 
-
-    @Override
-    public void setOnClickListener(View.OnClickListener listener) {
-        super.setOnClickListener(listener);
-        isCost = false;
-    }
 
     /**
      * 设置圆角

@@ -44,6 +44,7 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
         findViewById(R.id.btn_image).setOnClickListener(this);
         findViewById(R.id.btn_images).setOnClickListener(this);
         findViewById(R.id.btn_interface).setOnClickListener(this);
+        findViewById(R.id.add_fragment_button).setOnClickListener(this);
     }
 
     @Override
@@ -158,12 +159,10 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
                         ILog.e("失败" + e.toString());
                     }
                 });
+                break;
+            case R.id.add_fragment_button:
 
-
-
-
-
-
+                Toast.makeText(this, "asdasdasdas", Toast.LENGTH_SHORT).show();
 
 
 
