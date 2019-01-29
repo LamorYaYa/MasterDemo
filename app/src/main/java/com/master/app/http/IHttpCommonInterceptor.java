@@ -78,6 +78,7 @@ public class IHttpCommonInterceptor implements Interceptor {
 
                     for (String key : rootMap.keySet()) {
                         formBodyBuilder.addEncoded(key, rootMap.get(key) + "");
+                        mParamsMap.remove(key);
                     }
 
                     for (Map.Entry<String, String> entry : mParamsMap.entrySet()) {

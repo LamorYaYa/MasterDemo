@@ -1,4 +1,4 @@
-package com.master.app.nfct.dao;
+package com.master.app.dao;
 
 /**
  * Create By Master

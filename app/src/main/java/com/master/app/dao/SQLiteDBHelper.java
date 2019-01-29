@@ -1,4 +1,4 @@
-package com.master.app.nfct.dao;
+package com.master.app.dao;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

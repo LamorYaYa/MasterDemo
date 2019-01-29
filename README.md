@@ -84,4 +84,23 @@
          }
     });
 
-##
+## 权限使用
+    ...
+
+
+## 自定义Button，设置圆角 设置selector 点击颜色变化 share..
+    <com.master.app.view.ICustomButton
+        android:layout_width="match_parent"
+        android:layout_height="34dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="哈哈哈"
+        app:backColor="#234234"
+        app:backColorPress="#b1dec9"
+        app:backGroundImage="@mipmap/ic_launcher"
+        app:backGroundImagePress="@mipmap/ic_launcher_round"
+        app:isDrawable="false"
+        app:radius="8"
+        app:textColor="#000000"
+        app:textColorPress="#ffffff" />
