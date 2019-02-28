@@ -10,14 +10,15 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class IRetrofit {
 
-//    private static final String URL = "http://app.xizhongshop.com/";
-    private static final String URL = "https://api.bbbearmall.com/";
+    private static final String URL = "http://app.xizhongshop.com/";
+//    private static final String URL = "https://api.bbbearmall.com/";
 
     public static <T> T createApi(Class<T> cls) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(IOkHttpClient.getInstance().getOkHttpClient())
+                .addConverterFactory(StringConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
 

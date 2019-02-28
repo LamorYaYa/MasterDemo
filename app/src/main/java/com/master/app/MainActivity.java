@@ -13,6 +13,8 @@ import com.master.app.http.IRetrofit;
 import com.master.app.permission.PermissionHelpCallBack;
 import com.master.app.util.ILog;
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -86,6 +88,22 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
                 Map<String, String> mHashMap = new HashMap<>();
                 mHashMap.put("1", "1");
                 mHashMap.put("2", "2");
+
+
+
+                IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode3(), new IHttpManager.IResponseListener<JSONObject>() {
+                    @Override
+                    public void onSuccess(JSONObject data) {
+
+                    }
+
+                    @Override
+                    public void onFail(Throwable e) {
+
+                    }
+                });
+
+
 
                 IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode(), new IHttpManager.IResponseListener<Beans>() {
                     @Override
@@ -163,10 +181,6 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
             case R.id.add_fragment_button:
 
                 Toast.makeText(this, "asdasdasdas", Toast.LENGTH_SHORT).show();
-
-
-
-
 
                 break;
             default:

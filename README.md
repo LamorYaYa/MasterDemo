@@ -89,6 +89,8 @@
 
 
 ## 自定义Button，设置圆角 设置selector 点击颜色变化 share..
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     <com.master.app.view.ICustomButton
         android:layout_width="match_parent"
         android:layout_height="34dp"

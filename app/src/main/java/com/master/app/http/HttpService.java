@@ -2,6 +2,8 @@ package com.master.app.http;
 
 import com.master.app.Beans;
 
+import org.json.JSONObject;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -32,6 +34,12 @@ public interface HttpService {
 
     @POST("gginterface/api/sendVerifySMS.html")
     Observable<Beans> sendCode();
+
+    @POST("gginterface/api/sendVerifySMS.html")
+    Observable<String> sendCode2();
+
+    @POST("gginterface/api/sendVerifySMS.html")
+    Observable<JSONObject> sendCode3();
 
 
     // 上传单张图片
