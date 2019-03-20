@@ -1,12 +1,14 @@
 package com.master.app;
 
 import android.Manifest;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
 import com.master.app.base.BaseActivity;
 import com.master.app.constant.MainActivityConstant;
 import com.master.app.constant.impl.MainActivityPresenter;
+import com.master.app.dialog.ICustomDialog;
 import com.master.app.http.HttpService;
 import com.master.app.http.IHttpManager;
 import com.master.app.http.IRetrofit;
@@ -180,7 +182,30 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
                 break;
             case R.id.add_fragment_button:
 
-                Toast.makeText(this, "asdasdasdas", Toast.LENGTH_SHORT).show();
+                new ICustomDialog.Builder(this)
+                        // 设置布局
+                        .setLayoutResId(R.layout.test_dialog_layout)
+                        // 点击空白是否消失
+                        .setCanceledOnTouchOutside(false)
+                        // 点击返回键是否消失
+                        .setCancelable(false)
+                        // 设置Dialog的绝对位置
+                        .setDialogPosition(Gravity.CENTER)
+                        // 设置自定义动画
+                        .setAnimationResId(R.style.CenterAnimation)
+                        // 设置监听ID
+                        .setListenedItems(new int[]{R.id.btn_share})
+                        // 设置回掉
+                        .setOnDialogItemClickListener(new ICustomDialog.OnDialogItemClickListener() {
+                            @Override
+                            public void onDialogItemClick(ICustomDialog thisDialog, View clickView) {
+                                thisDialog.dismiss();
+                            }
+                        })
+                        .build().show();
+
+
+
 
                 break;
             default:

@@ -30,4 +30,10 @@
         <item name="android:windowExitAnimation">@anim/bottom_exit</item>
     </style>
 
+    <!-- dialog中间弹出菜单动画 -->
+    <style name="CenterAnimation" parent="android:Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/center_enter</item>
+        <item name="android:windowExitAnimation">@anim/center_exit</item>
+    </style>
+
 </resources>
