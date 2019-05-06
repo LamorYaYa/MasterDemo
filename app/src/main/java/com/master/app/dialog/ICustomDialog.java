@@ -18,19 +18,19 @@ public class ICustomDialog extends Dialog implements OnClickListener {
 
     private static Context iContext;
     private static int iLayoutResId;
-    private static int[] iListenedItems = new int[]{};
+    private static int[] iListenedItems;
 
     // dialog 动画
     private static int iAnimationResId;
 
     // Dialog 相对页面显示的位置
-    private static int iPosition = 0;
+    private static int iPosition;
 
     // 默认点击空白区域消失
-    private static boolean iCanceledOnTouchOutside = true;
+    private static boolean iCanceledOnTouchOutside;
 
     // 默认点击返回键消失
-    private static boolean iCancelable = true;
+    private static boolean iCancelable;
 
     // 回掉自定义接口
     private static OnDialogItemClickListener iOnDialogItemClickListener;
@@ -50,21 +50,11 @@ public class ICustomDialog extends Dialog implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Window window = getWindow();
-        if (0 == iPosition) {
-            // 默认居中
-            window.setGravity(Gravity.CENTER);
-        } else {
-            // 设置要显示的位置
-            window.setGravity(iPosition);
-        }
+        // 设置要显示的位置
+        window.setGravity(iPosition);
+        // 添加自定义动画
+        window.setWindowAnimations(iAnimationResId);
 
-        if (iAnimationResId == 0) {
-            // 添加默认动画
-            window.setWindowAnimations(R.style.BottomAnimation);
-        } else {
-            // 添加自定义动画
-            window.setWindowAnimations(iAnimationResId);
-        }
         setContentView(iLayoutResId);
 
         setCanceledOnTouchOutside(iCanceledOnTouchOutside);
@@ -88,6 +78,12 @@ public class ICustomDialog extends Dialog implements OnClickListener {
 
         public Builder(Context context) {
             iContext = context;
+            // It gets initialized every time because it's static
+            iAnimationResId = R.style.CenterAnimation;// 默认动画
+            iPosition = Gravity.CENTER; // 默认居中位置
+            iCancelable = true;// 默认返回键消失
+            iCanceledOnTouchOutside = true;// 默认点击空白消失
+            iListenedItems = new int[]{};// 初始化空间ID数组
         }
 
         public Builder setLayoutResId(int layoutResId) {
