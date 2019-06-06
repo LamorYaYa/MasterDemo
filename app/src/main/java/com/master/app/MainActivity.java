@@ -54,6 +54,9 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
     @Override
     protected void initData() {
 
+        getPresenter().userLogin("", "");
+
+
     }
 
     @Override
@@ -92,7 +95,6 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
                 mHashMap.put("2", "2");
 
 
-
                 IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode3(), new IHttpManager.IResponseListener<JSONObject>() {
                     @Override
                     public void onSuccess(JSONObject data) {
@@ -104,7 +106,6 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
 
                     }
                 });
-
 
 
                 IHttpManager.doRequest(IRetrofit.createApi(HttpService.class).sendCode(), new IHttpManager.IResponseListener<Beans>() {
@@ -205,8 +206,6 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
                         .build().show();
 
 
-
-
                 break;
             default:
                 break;
@@ -224,4 +223,13 @@ public class MainActivity extends BaseActivity<MainActivityConstant.MainActivity
         return null;
     }
 
+    @Override
+    public void loginSuccess() {
+
+    }
+
+    @Override
+    public void loginFail(Exception e) {
+
+    }
 }

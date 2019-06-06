@@ -9,9 +9,17 @@ import com.master.app.base.BaseView;
 public interface MainActivityConstant {
 
     interface MainActivityView extends BaseView {
+
+        void loginSuccess();
+        void loginFail(Exception e);
+
     }
 
     interface MainActivityPresenter {
+
+        void userLogin(String userName, String passWord);
+
+
     }
 
 }

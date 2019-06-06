@@ -106,3 +106,17 @@
         app:radius="8"
         app:textColor="#000000"
         app:textColorPress="#ffffff" />
+
+
+
+
+## 自定义登录Button..使用方法 设置OnClick事件后 执行 loginButton.startAnim(); 来执行动画
+
+    <com.master.app.view.LoginButton
+        android:id="@+id/button_login"
+        android:layout_width="260dp"
+        android:layout_height="44dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="14sp" />

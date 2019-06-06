@@ -3,6 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+
+        <item name="windowNoTitle">true</item>
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -35,5 +38,26 @@
         <item name="android:windowEnterAnimation">@anim/center_enter</item>
         <item name="android:windowExitAnimation">@anim/center_exit</item>
     </style>
+
+
+    <style name="WelcomeTheme" parent="Theme.AppCompat">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <!--下面这句如果你加上觉得好看就加，不好看就不加咯 虚拟按键 -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@mipmap/logo</item>
+
+
+
+
+
+
+
+
+
+
+    </style>
+
 
 </resources>

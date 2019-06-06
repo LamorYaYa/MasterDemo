@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MasterDemo</string>
+    <string name="app_tab_one">主页</string>
+    <string name="app_tab_two">优惠</string>
+    <string name="app_tab_three">购物车</string>
+    <string name="app_tab_four">我的</string>
 </resources>
